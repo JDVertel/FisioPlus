@@ -175,6 +175,8 @@ export const createEntradaCitaNueva = async ({ commit }, entradas) => {
     idprofesional,
   };
 
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",DataToSave);
+/* 
   const Ruta = `/${bd}.json`;
   console.log("se guardara:", entradas, "en bd", bd, "ruta:", Ruta);
   //servicio
@@ -182,7 +184,7 @@ export const createEntradaCitaNueva = async ({ commit }, entradas) => {
   //agregamos el id al array para subirlo al strore
   DataToSave.id = data.name;
   //se llama a la mutacion y s epasa el array como
-  console.log(DataToSave);
+  console.log(DataToSave); */
 };
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

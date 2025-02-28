@@ -22,20 +22,13 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
       <div class="row vitrinahorizontal">
         <div class="col-12">
           <div class="card-container">
-            <div
-              class="card mb-2"
-              v-for="agenda in dataAgendas"
-              :key="agenda.id"
-              @click="verListadoReservasByIdAgenda(agenda)"
-            >
-              <div
-                class="card-content"
-                v-bind:class="{
-                  theme_clases: agenda.clase === 'clases',
-                  theme_fisio: agenda.clase === 'fisioterapia',
-                  theme_consulta: agenda.clase === 'consulta',
-                }"
-              >
+            <div class="card mb-2" v-for="agenda in dataAgendas" :key="agenda.id"
+              @click="verListadoReservasByIdAgenda(agenda)">
+              <div class="card-content" v-bind:class="{
+                theme_clases: agenda.clase === 'clases',
+                theme_fisio: agenda.clase === 'fisioterapia',
+                theme_consulta: agenda.clase === 'consulta',
+              }">
                 <h5 class="card_titulo">{{ getDayOfWeek(agenda.fecha) }}</h5>
                 <hr class="hrsencillo" />
                 <div class="container card_detalle">
@@ -68,10 +61,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
         <h5>Detalle de Agenda Seleccionada</h5>
       </div>
 
-      <table
-        class="table table-sm table-striped"
-        v-if="this.sortedListaCitasDia != ''"
-      >
+      <table class="table table-sm table-striped" v-if="this.sortedListaCitasDia != ''">
         <thead class="table-danger">
           <tr>
             <th scope="col">Hora</th>
@@ -92,50 +82,30 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
       <br />
       <div class="container">
         <div class="row mb-3">
-          <button
-            type="button"
-            class="btn btn-warning btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            v-if="clase_agenda != ''"
-          >
+          <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            v-if="clase_agenda != ''">
             <strong>
               <i class="bi bi-plus-circle"></i> Reservar {{ clase_agenda }} -
-              {{ fecha_agenda }}</strong
-            >
+              {{ fecha_agenda }}</strong>
           </button>
         </div>
       </div>
       <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        data-bs-backdrop="static"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="exampleModal" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <strong>Realizar una reserva</strong>
 
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <p class="card-text">Ingrese la identificacion del paciente</p>
 
               <div class="row">
                 <div class="col-4 col-md-3">
-                  <select
-                    class="form-select form-select-sm textarea"
-                    id="inputGroupSelect01"
-                    v-model="B_tipodoc"
-                  >
+                  <select class="form-select form-select-sm textarea" id="inputGroupSelect01" v-model="B_tipodoc">
                     <option selected value="">Tipo Doc</option>
                     <option value="CC">CC</option>
                     <option value="TI">TI</option>
@@ -144,21 +114,13 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                   </select>
                 </div>
                 <div class="col-5 col-md-3">
-                  <input
-                    type="number"
-                    class="form-control form-control-sm textarea"
-                    id="text_numdoc"
-                    placeholder="# Documento"
-                    v-model="B_numdoc"
-                  />
+                  <input type="number" class="form-control form-control-sm textarea" id="text_numdoc"
+                    placeholder="# Documento" v-model="B_numdoc" />
                 </div>
 
                 <div class="col-3 col-md-3">
-                  <button
-                    class="btn btn-success btn-sm"
-                    @click="BTN_Buscar_paciente()"
-                    :disabled="BuscarP_isButtonDisabled"
-                  >
+                  <button class="btn btn-success btn-sm" @click="BTN_Buscar_paciente()"
+                    :disabled="BuscarP_isButtonDisabled">
                     Buscar
                   </button>
                 </div>
@@ -181,109 +143,59 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                     <div class="row">
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_1nombre"
-                            placeholder="1 Nombre"
-                            v-model="name1"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_1nombre"
+                            placeholder="1 Nombre" v-model="name1" />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_2nombre"
-                            placeholder="2 Nombre"
-                            v-model="name2"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_2nombre"
+                            placeholder="2 Nombre" v-model="name2" />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_1apelli"
-                            placeholder="1 Apellido"
-                            v-model="apell1"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_1apelli"
+                            placeholder="1 Apellido" v-model="apell1" />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_2apell"
-                            placeholder="2 Apellido"
-                            v-model="apell2"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_2apell"
+                            placeholder="2 Apellido" v-model="apell2" />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="number"
-                            class="form-control form-control-sm textarea"
-                            id="text_tel"
-                            placeholder="Celular"
-                            v-model="celular"
-                          />
+                          <input type="number" class="form-control form-control-sm textarea" id="text_tel"
+                            placeholder="Celular" v-model="celular" />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_direccion"
-                            placeholder="Email"
-                            v-model="email"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_direccion"
+                            placeholder="Email" v-model="email" />
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-group mb-1">
-                          <input
-                            type="text"
-                            class="form-control form-control-sm textarea"
-                            id="text_direccion"
-                            placeholder="Direccion"
-                            v-model="dir"
-                          />
+                          <input type="text" class="form-control form-control-sm textarea" id="text_direccion"
+                            placeholder="Direccion" v-model="dir" />
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-group input-group-sm mb-3">
-                          <span
-                            class="input-group-text"
-                            id="inputGroup-sizing-sm"
-                            >F Nacimiento:</span
-                          >
-                          <input
-                            type="date"
-                            class="form-control"
-                            aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm"
-                            v-model="fnacimiento"
-                          />
+                          <span class="input-group-text" id="inputGroup-sizing-sm">F Nacimiento:</span>
+                          <input type="date" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" v-model="fnacimiento" />
                         </div>
                       </div>
                     </div>
-                    <button
-                      class="btn btn-warning btn-sm"
-                      @click="cancelar_cerrarmodal()"
-                    >
+                    <button class="btn btn-warning btn-sm" @click="cancelar_cerrarmodal()">
                       Cancelar
                     </button>
-                    <button
-                      class="btn btn-success btn-sm"
-                      @click="BTN_registar_Paciente()"
-                      :disabled="Guardar_p_isButtonDisabled"
-                    >
+                    <button class="btn btn-success btn-sm" @click="BTN_registar_Paciente()"
+                      :disabled="Guardar_p_isButtonDisabled">
                       Registrar cliente
                     </button>
                   </div>
@@ -315,27 +227,15 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                             {{ fecha_agenda }}
                           </div>
                           <div class="input-group input-group-sm mb-3">
-                            <span
-                              class="input-group-text"
-                              id="inputGroup-sizing-sm"
-                              >Hora:</span
-                            >
-                            <input
-                              type="time"
-                              class="form-control"
-                              aria-label="Sizing example input"
-                              aria-describedby="inputGroup-sizing-sm"
-                              v-model="listahora"
-                            />
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Hora:</span>
+                            <input type="time" class="form-control" aria-label="Sizing example input"
+                              aria-describedby="inputGroup-sizing-sm" v-model="listahora" />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <button
-                        class="btn btn-success btn-sm"
-                        @click="BTN_Guardar_cita(clase,)"
-                      >
+                      <button class="btn btn-success btn-sm" @click="BTN_Guardar_cita(clase)">
                         Reservar
                       </button>
                     </div>
@@ -344,11 +244,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                 <!--  -->
 
                 <!--  -->
-                <div
-                  class="container"
-                  style="background-color: #c1c1c1"
-                  
-                >
+                <div class="container" style="background-color: #c1c1c1">
                   <br />
                   <div>
                     <h5>Citas Vigentes del Paciente</h5>
@@ -373,10 +269,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                           {{ this.nombreProfesional(cita.idprofesional) }}
                         </td>
                         <td>
-                          <button
-                            class="btn btn-danger btn-sm"
-                            @click="BTN_eliminar_ItemCita(cita.id)"
-                          >
+                          <button class="btn btn-danger btn-sm" @click="BTN_eliminar_ItemCita(cita.id)">
                             x
                           </button>
                         </td>
@@ -397,7 +290,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
     </div>
     <br />
 
-   <!--  <div class="container" style="background-color: #3453">
+    <!--  <div class="container" style="background-color: #3453">
       <div class="container">
         <div class="row">
           <div class="container">
@@ -587,7 +480,7 @@ export default {
       ];
       this.getDataUsersbyParam(this.paramsPaciente);
       /* recargar listado de citas del paciente */
-      this.GetCitasVigentesPaciente();
+      /* this.GetCitasVigentesPaciente(); */
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     async BTN_registar_Paciente() {
@@ -612,12 +505,11 @@ export default {
 
     /* ----------------PROFESIONALES------------------------------------------------------------------- */
 
-   nombreProfesional(dataID) {
-  
+    nombreProfesional(dataID) {
       const nombreProf = this.dataprofesionales.filter(
         (prof) => prof.id == dataID
       );
-      const resp =  nombreProf[0];
+      const resp = nombreProf[0];
       const nombreprofesional = resp.name1 + " " + resp.apell1;
       return nombreprofesional;
     },
@@ -660,7 +552,7 @@ export default {
     },
 
     /* ------------------------------CITAS-------------------------------------------------------- */
-    async GetCitasVigentesPaciente() {
+/*     async GetCitasVigentesPaciente() {
       this.paramsCitasPaciente = [
         {
           bd: "citas",
@@ -672,7 +564,7 @@ export default {
       await this.NewgetDataUsersbyParam(this.paramsCitasPaciente);
       this.filtrarcitasPaciente_reservadas();
       this.VerListadoCitasAsignadas();
-    },
+    }, */
     /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     filtrarcitasPaciente_reservadas() {
       console.log("ejecutando filtrocitaspaciente");
