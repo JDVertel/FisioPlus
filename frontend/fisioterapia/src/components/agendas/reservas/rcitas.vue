@@ -94,7 +94,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
             class="btn btn-warning btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
-            
+            @click="vaciarformbpaciente()"
             v-if="clase_agenda != ''"
           >
             <strong>
@@ -309,7 +309,6 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                           <div class="row">
                             <strong>Fecha/Tipo:</strong>{{ clase_agenda }} -
                             {{ fecha_agenda }}
-
                           </div>
                           <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm"
@@ -387,7 +386,6 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
       <!--  -->
     </div>
     <br />
-
 
     <div class="container home">
       <router-link to="/dashboard">Home</router-link>
@@ -495,7 +493,7 @@ export default {
       ];
       this.getDataUsersbyParam(this.paramsPaciente);
       /* recargar listado de citas del paciente */
-      /* this.GetCitasVigentesPaciente(); */
+      this.GetCitasVigentesPaciente();
     },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     async BTN_registar_Paciente() {
@@ -564,7 +562,7 @@ export default {
     },
 
     /* -----------------cargar listado de citas del paciente seleccionado--------------------------------------------------- */
-     async GetCitasVigentesPaciente() {
+    async GetCitasVigentesPaciente() {
       this.paramsCitasPaciente = [
         {
           bd: "citas",
@@ -626,11 +624,10 @@ export default {
     async BTN_Guardar_cita(dataagenda) {
       /* this.capturalabeldeselect(); */
       this.btnagendar = false;
- 
+
       this.params_GuardarFechaCita = [
         {
-          paciente:
-          this.datapaciente[0].name1 + " " + this.datapaciente[0].apell1,
+          paciente: this.datapaciente[0].name1 + " " + this.datapaciente[0].apell1,
           numdoc: this.datapaciente[0].numdoc,
           telpaciente: this.datapaciente[0].celular,
           estado: "0",
@@ -650,17 +647,18 @@ export default {
     },
 
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-     GetAllcitasToPaciente() {
-                 console.log("ejecutando buscarallcitas pacientes")
-                 this.paramsCitasPaciente = [{
-                     bd: "citas",
-                     parametro1: "fecha",
-                     valor1: this.diaformatedfecha,
-                     rta: "setStateCitasPaciente"
-                 }]
-                 this.NewgetDataUsersbyParam(this.paramsCitasPaciente);
-
-             },
+    GetAllcitasToPaciente() {
+      console.log("ejecutando buscarallcitas pacientes");
+      this.paramsCitasPaciente = [
+        {
+          bd: "citas",
+          parametro1: "fecha",
+          valor1: this.diaformatedfecha,
+          rta: "setStateCitasPaciente",
+        },
+      ];
+      this.NewgetDataUsersbyParam(this.paramsCitasPaciente);
+    },
     /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
     Get_Agendamiento_pacientes_fecha() {
       this.paramsFechasCitas = [
@@ -692,7 +690,7 @@ export default {
       this.id_agenda = agenda.id;
       this.clase_agenda = agenda.clase;
       this.fecha_agenda = agenda.fecha;
-      this.idprof_agenda=agenda.id_profesional;
+      this.idprof_agenda = agenda.id_profesional;
       this.VerListadoCitasAsignadasNew(agenda.id);
     },
 
@@ -706,7 +704,7 @@ export default {
       ];
       this.clearDataStoreA(this.paramsClear);
     },
-
+    /*  */
     vaciarcamposReservas() {
       this.f_reserva = "";
       this.p_reserva = "";
@@ -714,7 +712,15 @@ export default {
       this.listahora = "";
       console.log("vaciando de campos del formulario de reservas");
     },
+    /*  */
+    vaciarformbpaciente() {
+      this.B_tipodoc = "";
+      this.B_numdoc = "";
+      this.existepaciente = "";
+      this.citaspaciente = [];
+    },
 
+    /*  */
     getDayOfWeek(dateString) {
       const date = new Date(dateString);
       const days = [
@@ -773,7 +779,7 @@ export default {
     formattedDate() {
       return moment(this.fecha_agenda).format("YYYY-MM-DD");
     },
-    
+
     diaformatedfecha() {
       return moment(new Date()).format("YYYY-MM-DD");
     },
