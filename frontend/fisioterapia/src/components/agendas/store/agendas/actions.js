@@ -320,6 +320,10 @@ export const clearDataStoreA = async ({ commit }) => {
   commit("ClearStoreM");
 };
 
+export const clearStorePaciente = async ({commit})=>{
+  commit("ClearStorePaciente")
+}
+
 /* ----------------PROFESIONAL-------------------------------------------- */
 
 export const updateReserva = async ({ commit }, entradas) => {
@@ -354,4 +358,38 @@ export const updateReserva = async ({ commit }, entradas) => {
   //servicio
   const response = await firebase_api.put(Ruta, dataToSave);
   /* commit("updateDataVitrina", { ...entradas }); */
+};
+
+/* ------------------Contar Elementos de un listado------------- */
+export const getCountDatabyParam = async ({ commit }, parametros) => {
+  console.log(parametros);
+  const [{ bd, parametro, valor }] = parametros;
+  const response = await firebase_api.get(`/${bd}.json`, {
+    params: {
+      orderBy: `"${parametro}"`,
+      equalTo: `"${valor}"`,
+    },
+  });
+  const { data } = response;
+  const datasalida = [];
+  for (let id of Object.keys(data)) {
+    datasalida.push({
+      id,
+      ...data[id],
+    });
+  }
+  console.log(
+    "data consulta por parametros",
+    bd,
+    "por",
+    parametro,
+    "rta:",
+    datasalida
+  );/* 
+  if (datasalida.length != 0) {
+    commit(`${rta}`, datasalida);
+  } else {
+    console.log("sin datos en la consulta");
+  } */
+  return datasalida.count;
 };

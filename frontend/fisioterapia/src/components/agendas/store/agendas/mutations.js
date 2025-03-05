@@ -57,7 +57,12 @@ state.datapaciente=[];
 state.existepaciente="";
 state.dataprofesionales=[];
 state.existeprofesionales="";
+}
 
+export const ClearStorePaciente=(state)=>{
+    state.dataAllCitasPaciente=[];
+    state.datapaciente=[];
+    state.existepaciente="";
 
 }
 

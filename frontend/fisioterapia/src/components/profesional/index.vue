@@ -5,7 +5,6 @@
     llegan ( idprofesional - id_ips- tipoagenda)
     se cargan de entrada citas del profesional en el dia actual
     renderiza tabla y cada registro debe tener el campo de asistir y opcion de llenar hc usar el store de AUTH para registro y el de HC Para el resto de hc -->
-
         <div class="card w-100 mt-3 mb-3">
             <div class="card-body">
                 <h5 class="card-title centrado">Agenda del Dia </h5>
@@ -127,9 +126,10 @@
                 </table>
             </div>
         </div>
+        <br><br>
     </div>
-    <br>
-    <br>
+
+
 
 </template>
 

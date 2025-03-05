@@ -25,7 +25,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
             <div
               class="card mb-2"
               v-for="agenda in dataAgendas"
-              :key="agenda.id"
+              :key="agenda.id" 
               @click="verListadoReservasByIdAgenda(agenda)"
             >
               <div
@@ -51,7 +51,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
 
                 <hr class="hrsencillo" />
                 <div class="container card_contador">
-                  <h5>34</h5>
+                  <h5>{{ this.contarCitasAgenda(agenda.id) }}</h5>
                   Reservadas
                 </div>
               </div>
@@ -330,7 +330,7 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                         class="btn btn-success btn-sm"
                         @click="BTN_Guardar_cita(clase)"
                       >
-                        Reservar
+                       Guardar cita
                       </button>
                     </div>
                   </div>
@@ -434,6 +434,8 @@ export default {
     ListaCitasDia: [],
     desord_ListaCitasDia: [],
     paramsClear: [],
+//aray de parametros de contedo de citas
+    paramsCountAgenda:[],
     // adicionar usuario
     name1: "",
     name2: "",
@@ -474,9 +476,11 @@ export default {
       "getDataUsersbyParam",
       "DeleteItem",
       "clearDataStoreA",
+      "clearStorePaciente",
       "createEntradanewPaciente",
       "ClosetModalNewPaciente",
       "NewgetDataUsersbyParam",
+      "getCountDatabyParam",
     ]),
 
     /* ---------PACIENTES--------------------------------------------------------------------------- */
@@ -692,6 +696,22 @@ export default {
       this.fecha_agenda = agenda.fecha;
       this.idprof_agenda = agenda.id_profesional;
       this.VerListadoCitasAsignadasNew(agenda.id);
+      
+    },
+
+   async contarCitasAgenda(dataidagenda){
+      console.log("ejecutando consulta de conteo de datos", dataidagenda)
+      this.paramsCountAgenda = [
+        {
+          bd: "citas",
+          parametro:"id_agenda",
+          valor: dataidagenda,
+         
+        },
+      ];
+     await this.getCountDatabyParam(this.paramsCountAgenda[0]);
+
+      return rta
     },
 
     /* ------------------SISTEMAS---------------------------------------------------------------------------- */
@@ -718,7 +738,10 @@ export default {
       this.B_numdoc = "";
       this.existepaciente = "";
       this.citaspaciente = [];
+      this.vaciar_store_dataallcitaspaciente();
+      this.clearStorePaciente();
     },
+
 
     /*  */
     getDayOfWeek(dateString) {
