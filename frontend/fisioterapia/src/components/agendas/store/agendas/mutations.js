@@ -28,12 +28,13 @@ export const setStateAgendas=(state, data)=>{
     state.dataAgendas="";
     state.dataAgendas=[...state.dataAgendas, ...data];
 }
+//quitar
 
-export const setStateCitasPaciente=(state,data)=>{
+/* export const setStateCitasPaciente=(state,data)=>{
     state.dataAllCitasPaciente="",
     state.dataAllCitasPaciente=[...state.dataAllCitasPaciente, ...data];
 }
-
+ */
 
 /* ------------------------------------CITAS ------------------------------------------------ */
 
