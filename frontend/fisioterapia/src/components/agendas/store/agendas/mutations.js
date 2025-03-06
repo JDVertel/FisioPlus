@@ -43,6 +43,13 @@ export const setStateCitas=(state , citas)=>{
 
 }
 
+export const setStateAllCitas=(state , citas)=>{
+    state.dataAllCitas="";
+    state.dataAllCitas=[...state.dataAllCitas, ...citas];
+
+}
+
+
 /* export const UpdateStateCitas=(state , citas)=>{
     state.dataCitas="";
     state.dataCitas=[...state.dataCitas, ...citas];
