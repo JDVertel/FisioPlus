@@ -651,7 +651,7 @@ export default {
       ];
 
       await this.createEntradaCitaNueva(this.params_GuardarFechaCita[0]);
-      this.GetAllcitasToPacient();
+      this.GetAllcitasToPaciente();
       this.VerListadoCitasAsignadas();
       this.vaciarcamposReservas();
       this.Get_Citas_pacientes_fecha();
