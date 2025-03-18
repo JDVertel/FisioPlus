@@ -1,44 +1,26 @@
 <template>
+<div>
+
+    <div class="container-fluid navbarprof">
+        <div class="row">
+            <div class="col-5">
+                <h5>Agenda del dia</h5>
+            </div>
+            <div class="col-7" style="text-align: right;">
+                Ramon jose vertel <br> Consulta / <small> {{ this.fechaHoy }}</small>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
 
         <!--  pagina de profesional
     llegan ( idprofesional - id_ips- tipoagenda)
     se cargan de entrada citas del profesional en el dia actual
     renderiza tabla y cada registro debe tener el campo de asistir y opcion de llenar hc usar el store de AUTH para registro y el de HC Para el resto de hc -->
-        <div class="card w-100 mt-3 mb-3">
-            <div class="card-body">
-                <h5 class="card-title centrado">Agenda del Dia </h5>
-                <div class="row">
-                    <div class="col-2">
-                        <img src="..." class="img-thumbnail centrado" alt="...">
-                    </div>
-                    <div class="col-10">
 
-                        <p>profesional: Ramon jose vertel </p>
 
-                        <div class="row">
-                            <div class="col-6 col-md-3">
-                                <p>Servicio: consulta </p>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <p>Fecha: {{ this.fechaHoy }} </p>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <p>Ips: rehabilitacion erika jasmin </p>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <p>Nit: 123456 </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="card w-100 mb-3">
-            <div class="card-body">
                 <h5 class="card-title">Citas</h5>
-                <p class="card-text">Pacientes Agendados el dia de hoy </p>
 
                 <table class="table table-striped table-sm ">
                     <thead class="table-dark">
@@ -54,11 +36,9 @@
                             <td>{{ cita.hora }}</td>
                             <td>{{ cita.paciente }}</td>
                             <td>{{ cita.telpaciente }} </td>
-                            <td><button type="button" class="btn btn-danger btn-sm"
-                                    @click="ActualizaEstadoCita('NO', cita)">X</button>
+                            <td><button type="button" class="btn btn-danger btn-sm" @click="ActualizaEstadoCita('NO', cita)">X</button>
                                 <router-link :to="{ name: 'hc', params: { idpaciente: cita.numdoc } }">
-                                    <button type="button" class="btn btn-primary btn-sm"
-                                        @click="ActualizaEstadoCita('SI', cita)">OK</button>
+                                    <button type="button" class="btn btn-primary btn-sm" @click="ActualizaEstadoCita('SI', cita)">OK</button>
                                 </router-link>
                                 <!-- 
 
@@ -71,12 +51,9 @@
                     </tbody>
                 </table>
                 <!--             <a href="#" class="btn btn-primary">Button</a> -->
-            </div>
-        </div>
 
         <p class="d-inline-flex gap-1">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                aria-expanded="false" aria-controls="collapseExample">
+            <a class="btn btn-primary btn-sm" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Historial diario
             </a>
 
@@ -104,7 +81,7 @@
             </div>
 
             <div class="card card-body">
-                <caption>Citas NO Asistdas del dia </caption>
+                <caption>Citas NO Asistidas del dia </caption>
                 <table class="table table-striped table-sm ">
 
                     <thead class="table-danger">
@@ -129,8 +106,7 @@
         <br><br>
     </div>
 
-
-
+</div>
 </template>
 
 <script>
@@ -206,7 +182,7 @@ export default {
 
     },
     computed: {
-        ...mapState('Agendas', ['dataCitas',]),
+        ...mapState('Agendas', ['dataCitas', ]),
         /*     ...mapState('Auth', []),
 
  */

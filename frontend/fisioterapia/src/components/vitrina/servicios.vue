@@ -5,7 +5,7 @@
       v-for="servicio in serviciosFiltrados"
       :key="servicio.nombre"
     >
-      <div class="card tarjeta">
+      <div class="card">
         <img
           :src="`${servicio.img}`"
           class="card-img-top imagenservicio"
@@ -16,19 +16,19 @@
           <h5 class="card-title">
             <strong>{{ servicio.nombre }}</strong>
           </h5>
-          <p class="card-text">{{ servicio.desc }}.</p>
+          <small>{{ servicio.desc }}.</small>
         </div>
 
         <div class="pie">
           <div class="row">
             <button
               type="button"
-              class="btn btn-success btn-sm"
+              class="btn btn-outline-success btn-sm"
               data-bs-toggle="modal"
               data-bs-target="#ModalProducto"
               @click="ModalServicios(servicio)"
             >
-              Ver
+              + Mas Informacion
             </button>
           </div>
         </div>
@@ -47,7 +47,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="ModalProductoLabel">
-                <strong>Precios y planes</strong>
+                <strong>Planes y Precios -- {{ t_nombre }}</strong>
               </h1>
               <button
                 type="button"
@@ -58,8 +58,9 @@
             </div>
             <div class="modal-body">
               <div class="row">
+   
                 <div class="col-5">
-                  <div class="row">{{ t_nombre }}</div>
+              
                   <div class="row">
                     <img
                       :src="`${t_img}`"
@@ -92,7 +93,7 @@
                 <div class="col-7">
                   <button
                     type="button"
-                    class="btn btn-secundary btn-sm"
+                    class="btn btn-outline-success btn-sm btn-sm"
                     v-on:click="reservaCitasW(servicio.nombre, this.telefono1)"
                   >
                     <img

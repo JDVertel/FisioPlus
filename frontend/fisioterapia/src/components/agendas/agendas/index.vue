@@ -15,9 +15,8 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
   <div class="container">
     <div class="body">
       <div class="container centrado mt-5">
-        <h6 class="display-5">Agendamiento</h6>
+        <h1>Agendamiento</h1>
       </div>
-      <hr />
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -31,7 +30,7 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
             aria-controls="home-tab-pane"
             aria-selected="true"
           >
-            Agendas del Dia
+            Programadas
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -45,36 +44,7 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
             aria-controls="profile-tab-pane"
             aria-selected="false"
           >
-            + Gestionar -
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="contact-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#contact-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="contact-tab-pane"
-            aria-selected="false"
-          >
-            Parametros
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="disabled-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#disabled-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="disabled-tab-pane"
-            aria-selected="false"
-            disabled
-          >
-            Disabled
+            Crear/Eliminar
           </button>
         </li>
       </ul>
@@ -88,9 +58,8 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
             tabindex="0"
           >
             <!--  -->
-            <div class="sidebar">
-              <br />
-              <div class="input-group input-group-sm mb-3">
+
+            <!--       <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Fecha</span>
                 <input
                   type="date"
@@ -100,46 +69,37 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
                   v-model="FVerAgenda"
                   @change="this.FiltrarAgendaDia()"
                 />
+              </div> -->
+
+            <br />
+
+            <div class="row">
+              <div
+                class="col-4 col-md-2 mb-3"
+                v-for="reg in this.dataAgendas"
+                :key="reg.id"
+              >
+                <div class="card">
+                  <button
+                    type="button"
+                    class="btn btn-sm"
+                    :class="{
+                      'btn-primary': reg.clase === 'clases',
+                      'btn-success': reg.clase === 'fisioterapia',
+                      'btn-warning': reg.clase === 'consulta',
+                    }"
+                    @click="GetAgendaSelect(reg.id)"
+                  >
+                    {{ reg.clase }} <br />
+                    <small>
+                      {{ reg.fecha }}
+
+                      <br />
+                      {{ nombreProfesional(reg.id_profesional) }}</small
+                    >
+                  </button>
+                </div>
               </div>
-
-              cant: {{ cantAgendasDia }}
-              <br />
-
-              <ol class="list-group">
-                <li
-                  v-for="reg in this.ListVerAgenda"
-                  :key="reg.id"
-                  class="list-group-item d-flex justify-content-center align-items-center"
-                >
-                  <div class="col-2">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-sm"
-                      @click="this.GetAgendaSelect(reg.id)"
-                    >
-                      Ver
-                    </button>
-                  </div>
-                  <div class="col-10">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold">
-                        Profesional: {{ this.nombreProfesional(reg.id_profesional) }}
-                      </div>
-                      Agenda de {{ reg.clase }}
-                    </div>
-
-                    <span class="badge bg-primary rounded-pill"
-                      >Reservadas {{ reservadas }}</span
-                    >
-                    <span class="badge bg-success rounded-pill"
-                      >Asistidas {{ asistidas }}</span
-                    >
-                    <span class="badge bg-danger rounded-pill"
-                      >NO asistidas {{ noasistidas }}</span
-                    >
-                  </div>
-                </li>
-              </ol>
             </div>
 
             <!--  -->
@@ -248,28 +208,6 @@ organizar las fechas(reservar cita)  en orden ya que aparecen desordenadas
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="contact-tab-pane"
-            role="tabpanel"
-            aria-labelledby="contact-tab"
-            tabindex="0"
-          >
-            2
-
-            <hr />
-
-            crear y eliminar un tipo de agenda (bloquear)
-          </div>
-          <div
-            class="tab-pane fade"
-            id="disabled-tab-pane"
-            role="tabpanel"
-            aria-labelledby="disabled-tab"
-            tabindex="0"
-          >
-            3
           </div>
         </div>
         <br />

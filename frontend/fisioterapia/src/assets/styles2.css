@@ -122,25 +122,17 @@ button.accordion-button:not(.collapsed) {
   text-shadow: 1px 1px 2px black;
 }
 
-button,
-textarea,
-select,
-input {
-  /*   font-size: 0.75rem !important; */
-}
+
 
 nav-link.active {
   background-color: #198754;
 }
 
-/* personalizacion de tablas */
-th {
-  /*   font-size: 0.8rem; */
+.navbarprof{
+  background-color: #198754;
+  color: white;
 }
 
-td {
-  /*   font-size: 0.7rem; */
-}
 
 /*---------------------------------------------------mañas*/
 .radio-container {
@@ -159,9 +151,6 @@ td {
   font-size: 0.6em;
 }
 
-.texttable {
-  /*   font-size: 0.7em; */
-}
 
 .degradado {
   background-image: linear-gradient(to right, rgb(0, 128, 126), yellow, red);

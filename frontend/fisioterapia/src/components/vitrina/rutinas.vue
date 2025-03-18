@@ -8,19 +8,20 @@
           alt="..."
         />
         <div class="cuerpo">
-          <h5 class="card-title titulo">{{ rutina.nombre }}</h5>
-          <p class="card-text">{{ rutina.desc }}</p>
+          <strong>{{ rutina.nombre }}</strong>
+          <br>
+          <small>{{ rutina.desc }}</small>
         </div>
         <div class="pie">
           <div class="row">
             <button
               type="button"
-              class="btn btn-success btn-sm"
+              class="btn btn-outline-primary btn-sm"
               data-bs-toggle="modal"
               data-bs-target="#ModalRutina"
               @click="ModalRutina(rutina)"
             >
-              Ver
+            + Mas Informacion
             </button>
           </div>
         </div>
@@ -40,7 +41,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="ModalRutinaLabel">
-              <strong>Precios y planes</strong>
+              <strong>Precios y planes -- {{ t_nombre }}</strong>
             </h1>
             <button
               type="button"
@@ -52,7 +53,7 @@
           <div class="modal-body">
             <div class="row">
               <div class="col-5">
-                <div class="row">{{ t_nombre }}</div>
+     
                 <div class="row">
                   <img
                     :src="`${t_img}`"
@@ -86,7 +87,7 @@
                 <button
                   type="button"
                   class="btn btn-secundary btn-sm"
-                  v-on:click="reservaCitasW(servicio.nombre, this.telefono1)"
+                  v-on:click="reservaCitasW(this.t_nombre, this.telefono1)"
                 >
                   <img
                     width="20"

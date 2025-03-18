@@ -57,7 +57,10 @@ export default {
             src="https://img.icons8.com/ios-filled/50/massage.png"
             alt="massage"
           />
-          Servicios
+          <strong>
+            Servicios
+          </strong>
+         
         </button>
       </li>
       <li class="nav-item" role="presentation">
@@ -78,7 +81,8 @@ export default {
             src="https://img.icons8.com/ios-filled/50/yoga.png"
             alt="yoga"
           />
-          Clases
+          <strong>Clases</strong>
+          
         </button>
       </li>
       <li class="nav-item" role="presentation">
@@ -99,7 +103,8 @@ export default {
             src="https://img.icons8.com/external-yogi-aprelliyanto-glyph-yogi-aprelliyanto/32/external-shopping-bag-digital-marketing-yogi-aprelliyanto-glyph-yogi-aprelliyanto.png"
             alt="external-shopping-bag-digital-marketing-yogi-aprelliyanto-glyph-yogi-aprelliyanto"
           />
-          Tienda
+          <strong>Tienda</strong>
+        
         </button>
       </li>
     </ul>

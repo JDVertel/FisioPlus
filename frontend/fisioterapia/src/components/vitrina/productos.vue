@@ -12,22 +12,29 @@
           alt="..."
         />
         <div class="cuerpo">
-          <h5 class="card-title titulo">{{ producto.nombre }}</h5>
-          <p class="card-text">{{ producto.desc }}</p>
+          <strong>{{ producto.nombre }}</strong>
+          <br>
+          <small>{{ producto.desc }}</small>
+       
+       
+        
         </div>
+
         <div class="pie">
+          <div> Precio: <strong>${{ producto.precio }}</strong></div>
           <button
             type="button"
             v-on:click="reservaCitasW(producto.nombre, this.telefono1)"
-            class="btnwsp"
+           class="btn btn-outline-secondary btn-sm"
           >
-            $ {{ producto.precio }}
+            
             <img
               width="20"
               height="20"
               src="https://img.icons8.com/fluency/48/whatsapp.png"
               alt="whatsapp"
             />
+            Solicitar
           </button>
         </div>
       </div>
