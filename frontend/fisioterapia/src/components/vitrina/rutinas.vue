@@ -9,7 +9,7 @@
         />
         <div class="cuerpo">
           <strong>{{ rutina.nombre }}</strong>
-          <br>
+          <br />
           <small>{{ rutina.desc }}</small>
         </div>
         <div class="pie">
@@ -21,7 +21,7 @@
               data-bs-target="#ModalRutina"
               @click="ModalRutina(rutina)"
             >
-            + Mas Informacion
+              <strong> + Mas Informacion</strong>
             </button>
           </div>
         </div>
@@ -53,7 +53,6 @@
           <div class="modal-body">
             <div class="row">
               <div class="col-5">
-     
                 <div class="row">
                   <img
                     :src="`${t_img}`"

@@ -28,7 +28,7 @@
               data-bs-target="#ModalProducto"
               @click="ModalServicios(servicio)"
             >
-              + Mas Informacion
+              <strong>+ Mas Informacion </strong>
             </button>
           </div>
         </div>
@@ -58,9 +58,7 @@
             </div>
             <div class="modal-body">
               <div class="row">
-   
                 <div class="col-5">
-              
                   <div class="row">
                     <img
                       :src="`${t_img}`"

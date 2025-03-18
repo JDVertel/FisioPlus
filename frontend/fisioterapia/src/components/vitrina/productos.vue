@@ -13,28 +13,26 @@
         />
         <div class="cuerpo">
           <strong>{{ producto.nombre }}</strong>
-          <br>
+          <br />
           <small>{{ producto.desc }}</small>
-       
-       
-        
         </div>
 
         <div class="pie">
-          <div> Precio: <strong>${{ producto.precio }}</strong></div>
+          <div>
+            Precio: <strong>${{ producto.precio }}</strong>
+          </div>
           <button
             type="button"
             v-on:click="reservaCitasW(producto.nombre, this.telefono1)"
-           class="btn btn-outline-secondary btn-sm"
+            class="btn btn-outline-secondary btn-sm"
           >
-            
             <img
               width="20"
               height="20"
               src="https://img.icons8.com/fluency/48/whatsapp.png"
               alt="whatsapp"
             />
-            Solicitar
+            <strong> Solicitar</strong>
           </button>
         </div>
       </div>
