@@ -1,241 +1,220 @@
 <template>
-  <div>
-  
-    <h6 class="display-5 text-center">Menu FisioterapiApp</h6>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="50"
-                  height="50"
-                  src="https://img.icons8.com/dotty/80/overtime.png"
-                  alt="overtime"
-                />
-              </div>
-
-              <div class="col-8">
-                <div>
-                  <router-link
-                    :to="{ name: 'reservas', params: { id_user: this.id_user } }"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Reservas</h3>
-                      <p style="color: black">Reserva de citas a pacientes</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado">
-                <h1 class="display-5">5</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="50"
-                  height="50"
-                  src="https://img.icons8.com/ios/50/calendar--v1.png"
-                  alt="calendar--v1"
-                />
-              </div>
-
-              <div class="col-8">
-                <div>
-                  <router-link to="/agendas"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Agendas</h3>
-                      <p style="color: black">Gestión de agendas del sistema</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado">
-                <h1 class="display-5">5</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="55"
-                  height="55"
-                  src="https://img.icons8.com/dotty/80/sell.png"
-                  alt="sell"
-                />
-              </div>
-              <div class="col-8">
-                <div>
-                  <router-link to="/vitrina"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Vitrina</h3>
-                      <p style="color: black">Gestión de productos y servicios</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado" v-if="cant">
-                <h1 class="display-5">{{ cant }}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/ios/50/money--v1.png"
-                  alt="money--v1"
-                />
-              </div>
-              <div class="col-8">
-                <div>
-                  <router-link to="/ventas"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Ventas</h3>
-                      <p style="color: black">Registro de ventas de productos</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado">
-                <h1 class="display-5">9</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/wired/64/hospital-room.png"
-                  alt="hospital-room"
-                />
-              </div>
-              <div class="col-8">
-                <div>
-                  <router-link to="/buscar_hc"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Historia clinica</h3>
-                      <p style="color: black">Registro digital de las actividades</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado">
-                <div class="display-5">5</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="container cmenu">
-            <div class="row">
-              <div class="col-2 centrado">
-                <img
-                  width="48"
-                  height="48"
-                  src="https://img.icons8.com/wired/64/settings.png"
-                  alt="settings"
-                />
-              </div>
-              <div class="col-8">
-                <div>
-                  <router-link to="/parametros"
-                    ><a class="nav-link-menu" aria-current="page">
-                      <h3 style="color: black">Configuracion</h3>
-                      <p style="color: black">Gestión del sistema</p>
-                    </a></router-link
-                  >
-                </div>
-              </div>
-              <div class="col-2 centrado">
-                <h1 class="display-5">9</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div>
+    <div class="centrarcontenido">
+        <h1>FisioApp</h1> <strong>Menu</strong>
     </div>
-  </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/dotty/80/overtime.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9">
+                            <div class="col-12 p-2">
+                                <div>
+                                    <router-link :to="{ name: 'reservas', params: { id_user: this.id_user } }"><a class="nav-link-menu" aria-current="page">
+                                            <h2>Reservas</h2>
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<hr>
+<p>sdfdsfd</p>
+                </div>
+            </div>
+
+            <!--  -->
+
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/ios/50/calendar--v1.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9">
+                            <div class="col-12 p-2">
+                                <div>
+                                    <router-link to="/agendas"><a class="nav-link-menu" aria-current="page">
+                                            <h2>Agendas</h2>
+
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>sdfdsfd</p>
+                </div>
+            </div>
+            <!--  -->
+
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/dotty/80/sell.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9 p-2">
+                            <div class="col-12">
+                                <div>
+                                    <router-link to="/vitrina"><a class="nav-link-menu" aria-current="page">
+                                            <h2>Vitrina</h2>
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>sdfdsfd</p>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/ios/50/money--v1.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9">
+                            <div class="col-12 p-2">
+                                <div>
+                                    <router-link to="/ventas"><a class="nav-link-menu" aria-current="page">
+                                            <h2>Ventas</h2>
+
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>sdfdsfd</p>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/wired/64/hospital-room.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9">
+                            <div class="col-12 p-2">
+                                <div>
+                                    <router-link to="/buscar_hc"><a class="nav-link-menu" aria-current="page">
+                                            <h2>H Clinica</h2>
+
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>sdfdsfd</p>
+                </div>
+            </div>
+
+            <!--  -->
+
+            <div class="col-6 col-md-3">
+                <div class="card mb-3 cardDash">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <img src="https://img.icons8.com/wired/64/settings.png" class="img_Dashboard" />
+                        </div>
+                        <div class="col-9 p-2">
+                            <div class="col-12">
+                                <div>
+                                    <router-link to="/parametros"><a class="nav-link-menu" aria-current="page">
+                                            <h2>Config</h2>
+
+                                        </a></router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>sdfdsfd</p>
+                </div>
+            </div>
+
+            <!-- -------------------------------------------------------------------------------------------------------- -->
+
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions } from "vuex";
+import {
+    mapGetters,
+    mapState,
+    mapActions
+} from "vuex";
 
 export default {
-  components: {},
-  data: () => ({}),
+    components: {},
+    data: () => ({}),
 
-  computed: {
-    ...mapState("vitrina", ["cant"]),
-    ...mapState("Auth", ["auth", "id_ips", "id_user", "rol", "info"]),
-    /*         ...mapState('Agendas',['dataprofesionales','dataCitas']) */
-  },
+    computed: {
+        ...mapState("vitrina", ["cant"]),
+        ...mapState("Auth", ["auth", "id_ips", "id_user", "rol", "info"]),
+        /*         ...mapState('Agendas',['dataprofesionales','dataCitas']) */
+    },
 
-  methods: {
-    ...mapActions("vitrina", ["load_Vitrina"]),
-    /*         ...mapActions('Agendas', ['getDatabyParam', 'loadProfesionales', 'getDataByRangoSuperior', 'createEntradaCitaNueva', 'getDatarCitasFecha', 'getDataUsersbyParam', 'DeleteItem']), */
+    methods: {
+        ...mapActions("vitrina", ["load_Vitrina"]),
+        /*         ...mapActions('Agendas', ['getDatabyParam', 'loadProfesionales', 'getDataByRangoSuperior', 'createEntradaCitaNueva', 'getDatarCitasFecha', 'getDataUsersbyParam', 'DeleteItem']), */
 
-    /*     BuscarProfesionales() {
-                    this.paramsProfesionales = [{
-                        bd: "profesionales",
-                        parametro: "id_ips",
-                        valor: this.id_ips,
-                        rta: "setStateProfesionales"
-                    }]
-                    this.getDataUsersbyParam(this.paramsProfesionales);
+        /*     BuscarProfesionales() {
+                        this.paramsProfesionales = [{
+                            bd: "profesionales",
+                            parametro: "id_ips",
+                            valor: this.id_ips,
+                            rta: "setStateProfesionales"
+                        }]
+                        this.getDataUsersbyParam(this.paramsProfesionales);
 
-                },
+                    },
 
-                filtarFechas() {
-                    const fecha = this.fechahoy()
-                    this.paramsFechasCitas = [{
-                        bd: "agendas",
-                        parametro: "fecha",
-                        valor: fecha,
-                        rta: "setStateCitas"
-                    }]
-                    this.getDataByRangoSuperior(this.paramsFechasCitas);
+                    filtarFechas() {
+                        const fecha = this.fechahoy()
+                        this.paramsFechasCitas = [{
+                            bd: "agendas",
+                            parametro: "fecha",
+                            valor: fecha,
+                            rta: "setStateCitas"
+                        }]
+                        this.getDataByRangoSuperior(this.paramsFechasCitas);
 
-                },
+                    },
 
-                fechahoy() {
-                    const date = new Date();
-                    const options = {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit'
-                    };
-                    const formatter = new Intl.DateTimeFormat('es-ES', options);
-                    const formattedDate = formatter.format(date);
-                    return formattedDate
-                }, */
-  },
+                    fechahoy() {
+                        const date = new Date();
+                        const options = {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit'
+                        };
+                        const formatter = new Intl.DateTimeFormat('es-ES', options);
+                        const formattedDate = formatter.format(date);
+                        return formattedDate
+                    }, */
+    },
 
-  created() {
-    this.load_Vitrina();
-    /*         this.BuscarProfesionales()
-                    this.filtarFechas() */
-  },
+    created() {
+        this.load_Vitrina();
+        /*         this.BuscarProfesionales()
+                        this.filtarFechas() */
+    },
 };
 </script>
+
+<style>
+a {
+    text-decoration: none !important;
+}
+</style>

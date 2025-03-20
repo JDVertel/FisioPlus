@@ -125,8 +125,6 @@ export const DeleteItemVitrina = async ({ commit }, entradas) => {
 
 
 
-
-
 /* ======================funcion filtrado x id */
 /* const response = await firebase_api.get('/vitrina.json', {
   params: {

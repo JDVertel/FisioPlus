@@ -4,4 +4,6 @@ export default () => ({
    id_user: "2",
    rol: "admin",
   info:"informacion del store auth",
+  DataEmpresa:[],
+  
 });

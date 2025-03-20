@@ -106,9 +106,10 @@ div.content-body {
   margin: 5px;
   border-radius: 5px;
   border-style: solid;
-  border-width: 1px;
-  border-color: #000;
+  border-width: 0px;
+  color: white !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #34836e;
 }
 
 .cmenu:hover {
@@ -116,8 +117,9 @@ div.content-body {
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
-  border-color: #2113e8;
+  border-color: #74e008;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #74e008;
 }
 .hrsencillo{
   margin-top: 0;
@@ -130,6 +132,21 @@ div.content-body {
   border-radius: 10px !important;
   /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2); */
   padding: 5px !important;
+}
+
+.img_Dashboard{
+  width: 100%; /* Ancho relativo */
+  height: auto; /* Altura automática para mantener la proporción */
+}
+
+.cardDash{
+  padding: 3px !important;
+}
+
+.logobar{
+  width: 70%; /* Ancho relativo */
+  height: auto; 
+  border-radius: 15px !important;
 }
 
 /* .card:hover {
@@ -249,3 +266,12 @@ input[type="radio"] {
   padding: 10px;
   text-align: center;
 }
+hr{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+a{
+  text-decoration: none;
+}
+
+

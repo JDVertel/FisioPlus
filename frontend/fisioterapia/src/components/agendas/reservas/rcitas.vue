@@ -49,11 +49,11 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                     'btn-success': reg.clase === 'fisioterapia',
                     'btn-warning': reg.clase === 'consulta',
                   }" @click="verListadoReservasByIdAgenda(reg)">
-                                {{ reg.clase }}<br />
-
+                                <hr>
+                                <h5>{{ reg.clase }}</h5>
+                                <hr>
                                 {{ reg.fecha }}
-
-                                <br />
+                                <hr />
                                 {{ nombreProfesional(reg.id_profesional) }}
 
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" v-if="contarCitas(reg.id)">
@@ -75,13 +75,11 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                     'btn-success': reg.clase === 'fisioterapia',
                     'btn-warning': reg.clase === 'consulta',
                   }" @click="verListadoReservasByIdAgenda(reg)">
-                                {{ reg.clase }}<br />
-
+                                <h5>{{ reg.clase }}</h5>
+                                <hr>
                                 {{ reg.fecha }}
-
-                                <br />
+                                <hr>
                                 {{ nombreProfesional(reg.id_profesional) }}
-                                
 
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" v-if="contarCitas(reg.id)">
                                     {{ contarCitas(reg.id) }}
@@ -102,14 +100,11 @@ id_ips :{{ id_ips }} - id_user: {{ id_user }}- rol: {{ rol }}- info:{{ info }}
                     'btn-success': reg.clase === 'fisioterapia',
                     'btn-warning': reg.clase === 'consulta',
                   }" @click="verListadoReservasByIdAgenda(reg)">
-                                {{ reg.clase }}<br />
-
+                                <h5>{{ reg.clase }}</h5>
+                                <hr />
                                 {{ reg.fecha }}
-
-                                <br />
+                                <hr />
                                 {{ nombreProfesional(reg.id_profesional) }}
-                                
-
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" v-if="contarCitas(reg.id)">
                                     {{ contarCitas(reg.id) }}
                                     <span class="visually-hidden">Agendados</span>

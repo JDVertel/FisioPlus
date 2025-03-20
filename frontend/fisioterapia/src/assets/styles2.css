@@ -23,6 +23,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+
 .cmenu:hover {
   margin: 5px;
   border-radius: 5px;
@@ -101,9 +102,7 @@ li button {
   color: #060606 !important;
 }
 
-.logototal a {
-  background-color: #2113e8;
-}
+
 /* HC */
 
 button.accordion-button.collapsed {

@@ -11,30 +11,23 @@
     <nav id="sidebar" :class="{ active: isNavbarOpen }">
       <div class="sidebar-header">
         <div class="d-flex justify-content-between align-items-center">
-          <router-link to="/" @click="toggleNavbarCloset">
-            <img src="./../assets/logo.png" class="logobar" />
-          </router-link>
+          <h3>FisioApp</h3>
           <button
             class="btn-close btn-close-white"
             @click="toggleNavbar"
-          ></button>
+          ></button>    
         </div>
-        <h3>FisioApp</h3>
+      
+          <router-link to="/" @click="toggleNavbarCloset">
+            <img src="./../assets/logo.png" class="logobar" />
+          </router-link>
+        
+     
+     
       </div>
 
       <ul class="list-unstyled components">
-        <li>
-          <router-link to="/login" @click="toggleNavbar" class="nav-link">
-            <img
-              class="icono"
-              width="20"
-              height="20"
-              src="https://img.icons8.com/ios-glyphs/30/key--v1.png"
-              alt="key--v1"
-            />
-            <span>Login</span>
-          </router-link>
-        </li>
+
         <li>
           <router-link to="/" @click="toggleNavbar" class="nav-link">
             <img
@@ -47,6 +40,8 @@
             <span>Home</span>
           </router-link>
         </li>
+  
+ 
         <li>
           <router-link to="/profesional" @click="toggleNavbar" class="nav-link">
             <img
@@ -72,6 +67,18 @@
           </router-link>
         </li>
         <li>
+          <router-link to="/login" @click="toggleNavbar" class="nav-link">
+            <img
+              class="icono"
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-glyphs/30/key--v1.png"
+              alt="key--v1"
+            />
+            <span>Login</span>
+          </router-link>
+        </li>
+        <li>
           <router-link to="/about" @click="toggleNavbar" class="nav-link">
             <img
               class="icono"
@@ -83,7 +90,13 @@
             <span>About</span>
           </router-link>
         </li>
+
+
+
+    
       </ul>
+
+      
     </nav>
 
     <!-- Main Content -->
@@ -157,8 +170,8 @@ export default {
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 150px;
+  max-width: 200px;
   background: #34836e;
   color: #fff;
   transition: all 0.3s ease-in-out;
